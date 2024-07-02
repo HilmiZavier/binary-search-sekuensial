@@ -1,0 +1,37 @@
+public class binarysearch {
+    public static int binarySearch(int[] array, int target) {
+        int kiri = 0;
+        int kanan = array.length - 1;
+        
+        while (kiri <= kanan) {
+            int tengah = kiri + (kanan - kiri) / 2;
+            
+            
+            if (array[tengah] == target) {
+                return tengah;
+            }
+            
+            
+            if (array[tengah] < target) {
+                kiri = tengah + 1;
+            } else { 
+                kanan = tengah - 1;
+            }
+        }
+        
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        int[] data = {2, 5, 6, 9, 10, 12, 15, 18, 20, 22};
+        int target = 18;
+        
+        int result = binarySearch(data, target);
+        
+        if (result == -1) {
+            System.out.println("Data " + target + " tidak ditemukan.");
+        } else {
+            System.out.println("Data " + target + " ditemukan di indeks " + result + ".");
+        }
+    }
+}
